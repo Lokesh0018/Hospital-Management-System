@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# Build output
+client/dist/
+
+# SQLite database
+*.db
+*.db-journal
+
+# Logs / OS
+npm-debug.log*
+.DS_Store
