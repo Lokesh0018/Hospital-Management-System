@@ -1,0 +1,516 @@
+/* ==========================================================================
+   MedPulse HMS — Unified Authentication Styles
+   ========================================================================== */
+
+.auth-unified-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: url('/assets/hospital_login_bg.jpg') center/cover no-repeat fixed;
+}
+
+/* Gradient overlay for full screen background */
+.auth-unified-layout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(8, 20, 36, 0.9) 0%, rgba(14, 165, 233, 0.45) 100%);
+  z-index: 1;
+}
+
+.auth-content-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 4rem;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Hero Section (Left side text floating over background)
+   ========================================================================== */
+.auth-hero-section {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  max-width: 600px;
+}
+
+.auth-hero-brand {
+  margin-bottom: 2.5rem;
+}
+
+.brand-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-teal-400), var(--color-primary-500));
+  color: white;
+  box-shadow: 0 8px 16px rgba(13, 148, 136, 0.4);
+}
+
+.brand-text {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: white;
+}
+
+.auth-hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, #ffffff, var(--color-teal-100));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-hero-subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.auth-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.auth-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #f8fafc;
+}
+
+.auth-feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(13, 148, 136, 0.2);
+  color: var(--color-teal-300);
+  border: 1px solid rgba(13, 148, 136, 0.3);
+}
+
+/* ==========================================================================
+   Form Section (Right side glassmorphism card)
+   ========================================================================== */
+.auth-form-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 480px;
+  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glassmorphism Card with Premium Soft Light Reflection */
+.auth-glass-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(40px) saturate(120%);
+  -webkit-backdrop-filter: blur(40px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px; /* 20px rounded corners */
+  padding: 3.5rem 3rem;
+  box-shadow: 
+    0 12px 24px -4px rgba(0, 0, 0, 0.05),
+    0 32px 64px -12px rgba(14, 165, 233, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+/* Add subtle light reflection layer inside the card */
+.auth-glass-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+  pointer-events: none;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.auth-form-header, .auth-form, .demo-creds-container {
+  position: relative;
+  z-index: 1; /* Keep content above the light reflection */
+}
+
+/* Allow dark mode to override the card */
+[data-theme="dark"] .auth-glass-card {
+  background: rgba(15, 23, 42, 0.75);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 12px 24px -4px rgba(0, 0, 0, 0.3),
+    0 48px 96px -12px rgba(8, 20, 36, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="dark"] .auth-glass-card::before {
+  background: radial-gradient(circle at center, rgba(14, 165, 233, 0.1) 0%, transparent 60%);
+}
+
+.auth-form-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.auth-form-header h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.auth-form-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--color-slate-400);
+  transition: color var(--transition-fast);
+}
+
+.input-wrapper:focus-within .input-icon {
+  color: var(--color-primary-500);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  font-size: 0.95rem;
+  background: var(--bg-app);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.25);
+  background: var(--surface);
+}
+
+/* ==========================================================================
+   Floating Labels & Glowing Borders
+   ========================================================================== */
+.floating-input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.floating-input {
+  width: 100%;
+  padding: 1.6rem 1rem 0.6rem 2.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 16px; /* 16px rounded corners */
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] .floating-input {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.floating-input:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 0 0 4px rgba(14, 165, 233, 0.15),
+    0 4px 12px rgba(14, 165, 233, 0.1);
+}
+
+[data-theme="dark"] .floating-input:focus {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.floating-label {
+  position: absolute;
+  left: 2.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-input:focus ~ .floating-label,
+.floating-input:not(:placeholder-shown) ~ .floating-label {
+  top: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-primary-500);
+}
+
+.input-wrapper:focus-within {
+  transform: translateY(-1px);
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  color: var(--color-slate-400);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.password-toggle-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.auth-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.remember-me input {
+  accent-color: var(--color-primary-600);
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.forgot-password {
+  font-size: 0.85rem;
+  color: var(--color-primary-600);
+  font-weight: 600;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+  color: var(--color-primary-700);
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 1.15rem;
+  background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+  color: white;
+  border: none;
+  border-radius: 14px; /* Matches modern 14-18px corner spec */
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 
+    0 4px 12px rgba(14, 165, 233, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.auth-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(14, 165, 233, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.auth-submit-btn:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.auth-submit-btn:disabled {
+  background: linear-gradient(135deg, var(--color-slate-400), var(--color-slate-500));
+  box-shadow: none;
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* Error Banner */
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-danger-light);
+  color: var(--color-danger-700);
+  border: 1px solid rgba(225, 29, 72, 0.3);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .auth-content-wrapper {
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+  .auth-hero-title {
+    font-size: 2.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-unified-layout {
+    overflow-y: auto;
+  }
+  
+  .auth-content-wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem 1.5rem;
+  }
+
+  .auth-hero-section {
+    flex: none;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .auth-hero-title {
+    font-size: 2.25rem;
+  }
+  
+  .auth-features-list {
+    display: none; /* Hide on mobile to save space */
+  }
+
+  .auth-form-section {
+    flex: none;
+    width: 100%;
+  }
+
+  .auth-glass-card {
+    padding: 2.5rem 1.5rem;
+  }
+}

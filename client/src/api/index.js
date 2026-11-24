@@ -1,0 +1,10 @@
+export { default as axiosClient } from './axiosClient.js';
+export { default as authApi } from './authApi.js';
+export { default as adminApi } from './adminApi.js';
+export { default as doctorApi } from './doctorApi.js';
+export { default as patientApi } from './patientApi.js';
+export { default as appointmentApi } from './appointmentApi.js';
+export { default as reportApi } from './reportApi.js';
+export { default as prescriptionApi } from './prescriptionApi.js';
+export { default as billingApi } from './billingApi.js';
+export { default as receptionistApi } from './receptionistApi.js';

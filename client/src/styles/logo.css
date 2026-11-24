@@ -1,0 +1,72 @@
+/* ==========================================================================
+   MedPulse HMS — Logo Component Styles
+   ========================================================================== */
+
+.app-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.app-logo-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: all var(--transition-fast);
+}
+
+/* ---- Size Variants ---- */
+
+.app-logo-wrapper.default {
+  max-width: 200px;
+}
+
+.app-logo-wrapper.large {
+  max-width: 360px;
+}
+
+.app-logo-wrapper.small {
+  max-width: 140px;
+}
+
+/* ---- Sidebar Expanded (fits 260px sidebar) ---- */
+
+.app-logo-wrapper.sidebar-expanded {
+  width: 220px;
+  max-width: 100%;
+  padding: 0.2rem 0.4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.app-logo-wrapper.sidebar-expanded .app-logo-img {
+  width: 100%;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+}
+
+/* ---- Collapsed Icon Mode (narrow sidebar) ---- */
+
+.app-logo-wrapper.collapsed {
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  border-radius: var(--radius-md);
+}
+
+.app-logo-wrapper.collapsed .app-logo-img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: cover;
+  object-position: left center;
+  transform: scale(1.5);
+  transform-origin: left center;
+}
